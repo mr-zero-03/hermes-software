@@ -2,7 +2,6 @@
   <div class="full-width">
     <q-card
       tag="form"
-      @submit="onSubmit"
       class="q-pa-sm q-py-md shadow-6 contact-form"
     >
       <q-card-section class="text-center">
@@ -13,51 +12,57 @@
       <q-card-section>
         <div class="form-input q-pb-sm">
           <span>Email</span>
-          <q-input type="email" label="email@example.com" class="q-pt-sm" standout outlined v-model="dataForm.name" dense />
+          <q-input type="email" label="email@example.com" class="q-pt-sm" standout outlined v-model="dataForm.email" dense />
         </div>
 
         <div class="form-input q-pb-sm">
           <span>Password</span>
-          <q-input type="password" label="Your password" class="q-pt-sm" standout outlined v-model="dataForm.email" dense />
+          <q-input type="password" label="Your password" class="q-pt-sm" standout outlined v-model="dataForm.password" dense />
         </div>
       </q-card-section>
 
       <q-card-actions>
-        <q-btn color="primary" no-caps class="full-width">Login</q-btn>
+        <q-btn @click="onSubmit" color="primary" no-caps class="full-width">Login</q-btn>
       </q-card-actions>
     </q-card>
   </div>
 </template>
 
 <script>
+import { Notify } from 'quasar'
+import { useAuthStore } from 'src/stores/auth';
+
+const autoStore = useAuthStore()
 
 export default {
   data () {
     return {
-      dataFormBase: {
-        name: '',
-        email: ''
-      },
-      dataForm: { ...this.dataFormBase }
+      dataForm: {
+        email: '',
+        password: ''
+      }
     }
   },
   methods: {
     onSubmit () {
-      if (accept.value !== true) {
-        $q.notify({
-          color: 'red-5',
+      if ( autoStore.login( this.dataForm ) ) {
+        Notify.create( {
+          color: 'green',
           textColor: 'white',
-          icon: 'warning',
-          message: 'You need to accept the license and terms first'
-        })
-      }
-      else {
-        $q.notify({
-          color: 'green-4',
+          icon: 'verified',
+          message: '¡Bienvenido!',
+          position: 'top-right'
+        } )
+
+        this.$router.push( '/dashboard' )
+      } else {
+        Notify.create( {
+          color: 'negative',
           textColor: 'white',
-          icon: 'cloud_done',
-          message: 'Submitted'
-        })
+          icon: 'dangerous',
+          message: '¡Incorrect password or email!',
+          position: 'top-right'
+        } )
       }
     },
     onReset () {

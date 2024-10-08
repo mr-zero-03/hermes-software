@@ -4,7 +4,7 @@ import { LocalStorage } from 'quasar'
 export const useUsersStore = defineStore( 'users', {
   state: () => ( {
     storage_name: 'users_database',
-    defaultAdmin: { id: 'a2-d3-m4-i5-n7', username: 'Admin', email: 'admin@test.com', password: 'seguro123', rol: 'admin' },
+    defaultAdmin: { id: 'a2-d3-m4-i5-n7', username: 'Admin', email: 'admin@test.com', password: 'admin123', role: 'admin' },
     data: [],
   } ),
   getters: {
