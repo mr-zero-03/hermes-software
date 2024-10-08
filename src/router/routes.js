@@ -8,37 +8,44 @@ const routes = [
   },
   {
     path: '/login',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/EmptyLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/login/login.vue') }
+      { path: '', component: () => import('pages/login/Login.vue') }
     ]
   },
   {
     path: '/contact',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/contact/contact.vue') }
+      { path: '', component: () => import('pages/contact/Contact.vue') }
     ]
   },
   {
     path: '/about-us',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/about-us/about-us.vue') }
+      { path: '', component: () => import('pages/about-us/AboutUs.vue') }
     ]
   },
   {
     path: '/users',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/users/users.vue') }
+      { path: '', component: () => import('pages/users/Users.vue') }
     ]
   },
   {
     path: '/products',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/products/products.vue') }
+      { path: '', component: () => import('pages/products/Products.vue') }
+    ]
+  },
+  {
+    path: '/shop',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/shop/Shop.vue') }
     ]
   },
 
