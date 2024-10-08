@@ -59,7 +59,8 @@ export default {
         { title: 'Home', link: '/', category: [ 'general' ], btn_type: 'link' },
         { title: 'Contacto', link: '/contact', category: [ 'general' ], btn_type: 'link' },
         { title: 'About Us', link: '/about-us', category: [ 'general' ], btn_type: 'link' },
-        { title: 'Usuarios', link: '/users', category: [ 'admin' ], btn_type: 'btn' },
+        { title: 'Tienda', link: '/shop', category: [ 'general' ], btn_type: 'link' },
+        { title: 'Usuarios', link: '/users', category: [ 'admin', 'comerciante' ], btn_type: 'btn' },
         { title: 'Productos', link: '/products', category: [ 'admin', 'comerciante' ], btn_type: 'btn' },
         { title: 'Login', link: '/login', category: [ 'admin', 'comerciante' ], btn_type: 'btn' }
       ]

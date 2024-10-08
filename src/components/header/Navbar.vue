@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar bg-body-tertiary" style="min-height: 120px;">
+  <q-toolbar class="bg-white justify-between" style="min-height: 120px;">
     <q-btn to="/" dense flat style="padding-left: 52px;">
       <img src="~assets/hermes-software-logo-slogan.svg" alt="Hermes Software" width="auto" height="84">
     </q-btn>
@@ -11,7 +11,7 @@
         v-bind="link"
       />
     </q-list>
-  </nav>
+  </q-toolbar>
 </template>
 
 <script>

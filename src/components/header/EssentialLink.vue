@@ -1,8 +1,7 @@
 <template>
   <q-item
     active-class="active-option"
-    tag="a"
-    class="col option nav-item"
+    class="option"
     :to="props.link"
   >
     <q-item-section
@@ -15,7 +14,6 @@
     <q-item-section>
       <q-btn
       :label="props.title"
-      :to="props.link"
       no-caps
       :class="getClassBtn()"
       :flat="props.btn_type !== 'btn'"
@@ -67,15 +65,15 @@ const props = defineProps({
 
 <style lang="scss" scoped>
   .option {
-    color: var( --bs-gray-600 );
+    color: $grey-6;
     min-width: max-content !important;
   }
   .active-option {
-    color: $bs_info;
+    color: $primary;
   }
   .option-btn {
     padding: 2px 10px;
     color: white;
-    background-color: $bs_info;
+    background-color: $primary;
   }
 </style>
