@@ -40,6 +40,8 @@
           v-if="show"
         />
       </transition>
+
+      <CustomFooter />
     </q-page-container>
   </q-layout>
 </template>
@@ -47,32 +49,26 @@
 <script>
 import EssentialLink from 'components/header/EssentialLink.vue'
 import Navbar from 'components/header/Navbar.vue'
+import CustomFooter from 'components/footer/Footer.vue'
 
 export default {
   components: {
     EssentialLink,
-    Navbar
+    Navbar,
+    CustomFooter
   },
   setup () {
     return {
       linksList: [
+        { title: 'Dashboard', link: '/dashboard', category: [ 'admin', 'comerciante' ], btn_type: 'link' },
         { title: 'Home', link: '/', category: [ 'general' ], btn_type: 'link' },
         { title: 'Contacto', link: '/contact', category: [ 'general' ], btn_type: 'link' },
         { title: 'About Us', link: '/about-us', category: [ 'general' ], btn_type: 'link' },
-        { title: 'Tienda', link: '/shop', category: [ 'general' ], btn_type: 'link' },
-        { title: 'Usuarios', link: '/users', category: [ 'admin', 'comerciante' ], btn_type: 'btn' },
+        { title: 'Tienda', link: '/shop', category: [ 'general', 'admin', 'comerciante' ], btn_type: 'link' },
+        { title: 'Usuarios', link: '/users', category: [ 'admin' ], btn_type: 'btn' },
         { title: 'Productos', link: '/products', category: [ 'admin', 'comerciante' ], btn_type: 'btn' },
-        { title: 'Login', link: '/login', category: [ 'admin', 'comerciante' ], btn_type: 'btn' }
+        { title: 'Login', link: '/login', category: [ 'admin', 'comerciante', 'general' ], btn_type: 'btn' }
       ]
-      // linksList: [
-      //   { title: 'Docs', caption: 'quasar.dev', icon: 'school', link: 'https://quasar.dev' },
-      //   { title: 'Github', caption: 'github.com/quasarframework', icon: 'code', link: 'https://github.com/quasarframework' },
-      //   { title: 'Discord Chat Channel', caption: 'chat.quasar.dev', icon: 'chat', link: 'https://chat.quasar.dev' },
-      //   { title: 'Forum', caption: 'forum.quasar.dev', icon: 'record_voice_over', link: 'https://forum.quasar.dev' },
-      //   { title: 'Twitter', caption: '@quasarframework', icon: 'rss_feed', link: 'https://twitter.quasar.dev' },
-      //   { title: 'Facebook', caption: '@QuasarFramework', icon: 'public', link: 'https://facebook.quasar.dev' },
-      //   { title: 'Quasar Awesome', caption: 'Community Quasar projects', icon: 'favorite', link: 'https://awesome.quasar.dev' }
-      // ]
     }
   },
   data () {
