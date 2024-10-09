@@ -1,10 +1,10 @@
 <template>
-  <div id="footer" class="shadow-up-4 row">
-    <div class="col col-lg-4 q-px-lg text-center">
+  <div id="footer" class="shadow-up-4 flex justify-evenly wrap q-pa-md">
+    <div class="text-center">
       <img src="~assets/hermes-software-logo-slogan.svg" width="265" height="auto" alt="">
     </div>
 
-    <div class="col col-lg-4 q-px-lg">
+    <div class="footer-section">
       <q-list class="no-border">
         <q-item-label header class="text-h6 text-black text-weight-medium">Redes</q-item-label>
 
@@ -27,7 +27,7 @@
       </q-list>
     </div>
 
-    <div class="col col-lg-4 q-px-lg">
+    <div class="footer-section">
       <q-list class="no-border">
         <q-item-label header class="text-h6 text-black text-weight-medium">Contacto</q-item-label>
 
@@ -71,6 +71,9 @@ export default {
 
 <style lang="scss" scoped>
   #footer {
-    height: 260px;
+    min-height: 260px;
+  }
+  .footer-section {
+    min-width: 280px;
   }
 </style>

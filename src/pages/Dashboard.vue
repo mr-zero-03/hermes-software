@@ -1,6 +1,8 @@
 <template>
   <q-page class="flex flex-center q-px-md">
-    <img src="~assets/hermes-software-logo-slogan.svg" width="400px" height="auto" >
+    <div style="max-width: 400px">
+      <img src="~assets/hermes-software-logo-slogan.svg" width="100%" height="auto" >
+    </div>
   </q-page>
 </template>
 

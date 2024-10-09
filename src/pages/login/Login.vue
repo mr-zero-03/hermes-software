@@ -1,10 +1,12 @@
 <template>
-  <q-page class="flex flex-center q-px-md">
-    <div class="full-width text-center">
+  <q-page class="q-px-md content-center">
+    <div class="text-center q-py-md">
       <q-btn color="primary" label="Regresar" icon="arrow_back" to="/" flat no-caps />
     </div>
 
-    <LoginForm class="login-form" />
+    <div class="login-form q-mx-auto q-py-md">
+      <LoginForm />
+    </div>
   </q-page>
 </template>
 

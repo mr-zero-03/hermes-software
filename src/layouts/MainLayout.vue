@@ -1,22 +1,35 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header fixed elevated>
-      <Navbar :linksList="linksList" />
+      <Navbar class="navbar-desktop" :linksList="linksList" />
 
-      <q-toolbar v-if="false">
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
-      </q-toolbar>
+      <div class="navbar-mobile">
+        <q-toolbar class="bg-white text-primary" style="min-height: 80px">
+          <q-toolbar-title>
+            <q-btn to="/" dense flat>
+              <img src="~assets/hermes-software-logo-slogan.svg" alt="Hermes Software" width="80px" height="auto">
+            </q-btn>
+          </q-toolbar-title>
+
+          <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
+        </q-toolbar>
+      </div>
     </q-header>
 
-    <q-drawer
-      v-if="false"
-      :v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
+    <q-drawer v-model="leftDrawerOpen" side="left" bordered>
+      <q-img v-if="authStore.isAuthenticated" class="" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
+        <div class="absolute-bottom full-height">
+          <q-avatar text-color="white" size="80px" class="q-pa-none" icon="account_circle">
+            <!-- <img src="https://cdn.quasar.dev/img/boy-avatar.png"> -->
+          </q-avatar>
+          <div class="text-weight-bold">{{authStore.user.name}}</div>
+          <div>{{authStore.user.email}}</div>
+        </div>
+      </q-img>
+
       <q-list>
         <q-item-label header >
-          Essential Links
+          Hermes Software
         </q-item-label>
 
         <EssentialLink
@@ -25,6 +38,10 @@
           v-bind="link"
         />
       </q-list>
+
+      <div class="absolute-bottom q-pa-md">
+        Hermes Software
+      </div>
     </q-drawer>
 
     <q-page-container>
@@ -43,6 +60,7 @@
 
       <CustomFooter />
     </q-page-container>
+
   </q-layout>
 </template>
 
@@ -50,6 +68,9 @@
 import EssentialLink from 'components/header/EssentialLink.vue'
 import Navbar from 'components/header/Navbar.vue'
 import CustomFooter from 'components/footer/Footer.vue'
+import { useAuthStore } from 'stores/auth'
+
+const authStore = useAuthStore()
 
 export default {
   components: {
@@ -59,6 +80,7 @@ export default {
   },
   setup () {
     return {
+      authStore,
       linksList: [
         { title: 'Dashboard', link: '/dashboard', category: [ 'admin', 'comerciante' ], btn_type: 'link' },
         { title: 'Home', link: '/', category: [ 'general' ], btn_type: 'link' },
@@ -98,11 +120,23 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .arrow_up {
     position: fixed;
     right: 40px;
     bottom: 40px;
     z-index: 99;
+  }
+  .navbar-desktop {
+    @media ( max-width: $breakpoint-sm-max ) {
+      display: none;
+    }
+  }
+  .navbar-mobile {
+    display: none;
+
+    @media ( max-width: $breakpoint-sm-max ) {
+      display: revert;
+    }
   }
 </style>
