@@ -1,6 +1,14 @@
 # Hermes Software (hermes-software)
 
-Users Management
+Users and Products Management
+
+
+## Default User - Login
+```text
+email: admin@test.com
+password: admin123
+```
+
 
 ## Install the dependencies
 ```bash
